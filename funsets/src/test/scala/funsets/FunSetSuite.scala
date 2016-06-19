@@ -77,6 +77,8 @@ class FunSetSuite extends FunSuite {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+    val lessThan5: Set = (x => x < 5)
+    val greaterThan3: Set = (x => x > 3)
   }
 
   /**
@@ -112,4 +114,13 @@ class FunSetSuite extends FunSuite {
   }
 
 
+
+  test("Intersect contains elements in both sets") {
+    new TestSets {
+      val s = intersect(lessThan5, greaterThan3)
+      assert(contains(s, 4), "4 is less than 5 and greater than 3")
+      assert(!contains(s, 3), "3 is less than 5 but not greater than 3")
+      assert(!contains(s, 5), "5 is not less than 5 but is greater than 3")
+    }
+  }
 }
