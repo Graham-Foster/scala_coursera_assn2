@@ -140,9 +140,16 @@ class FunSetSuite extends FunSuite {
     }
   }
 
-  test("forall(): For all even Integers, one more than the given integer will be odd") {
+  test("forall()") {
     new TestSets {
-      assert(forall(evens, x => (x+1)%2 != 0))
+      assert(forall(evens, x => (x+1)%2 != 0), "For all even Integers, one more than the given integer will be odd")
+    }
+  }
+
+  test("exists()") {
+    new TestSets {
+      assert(exists(evens, x => x == 6), "6 exists in the set of all even integers")
+      assert(!exists(evens, x => x == 7), "7 does not exist in the set of all even integers")
     }
   }
 }
