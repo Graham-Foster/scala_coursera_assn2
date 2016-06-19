@@ -152,4 +152,12 @@ class FunSetSuite extends FunSuite {
       assert(!exists(evens, x => x == 7), "7 does not exist in the set of all even integers")
     }
   }
+
+  test("map()") {
+    new TestSets {
+      assert(contains(map(s1, x=>x*2), 2), "2 is in the doubled singleton set of 1")
+      assert(!contains(map(s1, x=>x*2), 3), "3 is not in the doubled singleton set of 1")
+      assert(!contains(map(s1, x=>x*2), 1), "1 is not in the doubled singleton set of 1")
+    }
+  }
 }
