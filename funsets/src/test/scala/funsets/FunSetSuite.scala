@@ -139,4 +139,10 @@ class FunSetSuite extends FunSuite {
       assert(!contains(s, 5))
     }
   }
+
+  test("forall(): For all even Integers, one more than the given integer will be odd") {
+    new TestSets {
+      assert(forall(evens, x => (x+1)%2 != 0))
+    }
+  }
 }
