@@ -97,11 +97,12 @@ class FunSetSuite extends FunSuite {
        * The string argument of "assert" is a message that is printed in case
        * the test fails. This helps identifying which assertion failed.
        */
-      assert(contains(s1, 1), "Singleton")
+      assert(contains(s1, 1), "Singleton contains")
+      assert(!contains(s2, 1), "Singleton not containing")
     }
   }
 
-  test("union contains all elements of each set") {
+  ignore("union contains all elements of each set") {
     new TestSets {
       val s = union(s1, s2)
       assert(contains(s, 1), "Union 1")
